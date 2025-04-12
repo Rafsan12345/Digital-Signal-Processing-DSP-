@@ -1,0 +1,19 @@
+const float alpha = 0.02; // Smoothing factor
+int analogValue;
+float smoothedValue = 0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  analogValue = analogRead(A0);
+  smoothedValue = alpha * analogValue + (1 - alpha) * smoothedValue;
+
+
+Serial.print(analogValue);
+Serial.print('\t');
+Serial.println(smoothedValue);
+
+  //delay(1000); // Add a delay for readability
+}

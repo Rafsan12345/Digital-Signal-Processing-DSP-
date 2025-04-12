@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    // Example values
+    int x = 10; // Binary representation: 00001010
+    int n = 2;  // Shift amount
+
+    // Left shift operation: x << n
+    int result_left_shift = x << n; // Equivalent to x * (2^n)
+    printf("Result of left shift: %d\n", result_left_shift); // Output: 40
+
+    // Right shift operation: x >> n
+    int result_right_shift = x >> n; // Equivalent to x / (2^n)
+    printf("Result of right shift: %d\n", result_right_shift); // Output: 2
+
+    return 0;
+}

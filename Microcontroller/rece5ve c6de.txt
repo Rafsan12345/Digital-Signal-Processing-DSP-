@@ -1,0 +1,17 @@
+#include <iostream>
+unsigned int t;
+char d[13]="111111110011";
+char d8[9]="11111111";
+int main() {
+    for(int i =8;i>=0;i--)
+    {
+       if(d8[i]=='1')
+       {
+           t |= (1<<i);
+    
+}
+
+    }
+    std::cout <<t <<'\n';
+    return 0;
+}

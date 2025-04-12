@@ -1,0 +1,36 @@
+// Define the analog pin
+const int analogPin = A0;
+float volt=0;
+int k;
+float avgvolt;
+float voltout[15];
+
+void setup() {
+  // Start the serial communication
+  Serial.begin(9600);
+  float voltout[15];
+ for(k=0;k<15;k++) voltout[k]=0.0;
+
+}
+
+void loop() {
+  // Read the analog value from the specified pin
+  int sensorValue = analogRead(analogPin);
+  voltout[14]=sensorValue;               
+         avgvolt=voltout[0];
+         for(k=1; k<15; k++)
+         {
+            avgvolt=avgvolt+voltout[k];
+         }                             
+         avgvolt /= 15;    
+         for(k=0; k<14; k++)
+         {
+           voltout[k]=voltout[k+1];
+         }
+
+  Serial.println(avgvolt);
+//Serial.println(sensorValue);
+
+  // Add a delay for readability (optional)
+  //delay(500);
+}

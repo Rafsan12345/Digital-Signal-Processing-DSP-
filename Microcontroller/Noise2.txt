@@ -1,0 +1,26 @@
+// Define the analog pin
+const int analogPin = A0;
+float volt = 0;
+int k;
+float avgvolt;
+float voltout[15];
+
+void setup() {
+  // Start the serial communication
+  Serial.begin(9600);
+}
+
+void loop() {
+   Serial.println(analogRead(analogPin));
+   Serial.print('\t');
+  int numReads = 10;
+  int senseSum = 0 ;
+  for(int k =0;k<numReads;k++)
+  {
+   senseSum += analogRead(analogPin);
+   delay(1);
+  }
+  int senseAve = senseSum/numReads;
+  Serial.println(abs(senseAve));
+delay(200);
+}

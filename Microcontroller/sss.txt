@@ -1,0 +1,32 @@
+#include <iostream>
+#include <bitset>
+
+#define REFS1 7
+#define REFS0 6 
+#define REFS2 4 
+#define ADLAR 5
+#define MUX3 3 
+#define MUX2 2 
+#define MUX1 1 
+#define MUX0 0 
+
+using namespace std;
+char PORTA = 0b00000000;
+
+int main() {
+    
+  unsigned int value = 2048;
+
+  // Combine the value with control bits for MCP4921
+   unsigned int data = 0x3000 | value;
+
+  // Divide the 16-bit data into two 8-bit values
+   uint8_t high_byte = (data >> 8);
+   uint8_t low_byte =  data & 0xFF;
+   
+    cout << "data 16  : " << bitset<16>(data) << endl;
+    cout << "high_byte: " << bitset<8>(high_byte) << endl;
+    cout << "low_byte : " << bitset<8>(low_byte) << endl;
+
+    return 0;
+}
